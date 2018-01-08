@@ -31,4 +31,4 @@
 
     所以把获取的方式加载img.onload函数里面去就能获得宽高了，或者设置一个timeout。具体参考 [JS快速获取图片宽高的方法](http://www.css88.com/archives/5224/comment-page-1)
 
-## 实现 [效果图](https://lulujianglab.github.io/waterfall-layout/)
+## [效果图](https://lulujianglab.github.io/waterfall-layout/)

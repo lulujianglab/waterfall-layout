@@ -2,7 +2,7 @@ var waterfall = {
     container: document.getElementById("wf_container"),
     src: "http://cued.xunlei.com/demos/publ/img/P_", //图片来自迅雷UED，图片链接的结尾为：P_001.jpg
     imgNumber: 0, //每张图的编号
-    column: 5, //瀑布栏数，基于我取的照片，6栏最美好。
+    column: 5, //瀑布栏数，基于我取的照片，6栏最美好
     zoomWidth: 350, //放大后的图片宽度
     // 给图片设置属性
     setData: function() {
@@ -28,9 +28,9 @@ var waterfall = {
     append: function(column) { //添加函数
         if (this.imgNumber < 160) {
             var index = this.getIndex(),
-                div = document.createElement("div"),
-                img = document.createElement("img"),
-                imgUrl = this.src + index + ".jpg";
+            div = document.createElement("div"),
+            img = document.createElement("img"),
+            imgUrl = this.src + index + ".jpg";
 
             img.setAttribute("src", imgUrl);
             div.appendChild(img);
@@ -102,7 +102,7 @@ var waterfall = {
             // document.documentElement.clientHeight：网页内容可见部分的高度，随着浏览器窗口大小的变化而变化 
             // document.documentElement.offsetHeight：html标签下内容的实际高度,包括body标签的border,margin,padding
             // offsetHeight = clientHeight + 滚动条 + 边框
-            if (scrollTop + document.documentElement.clientHeight >= document.documentElement.offsetHeight-2) {
+            if (scrollTop + document.documentElement.clientHeight >= document.documentElement.offsetHeight-2) {// 滚动的时候，对每一列的底部位置做检测，如果在屏幕中或屏幕上方，则连续append三张新图片
                 that.appendOnce();//下拉触发一次，添加3张照片
                 that.appendOnce();
                 that.appendOnce();
@@ -143,6 +143,6 @@ var waterfall = {
 window.onload = function() {
     waterfall.init();
 }
-window.onresize = function() {
-    window.location.reload();
+window.onresize = function() { //onresize 事件会在窗口被调整大小时发生
+    window.location.reload(); // reload() 方法用于重新加载当前文档
 }
